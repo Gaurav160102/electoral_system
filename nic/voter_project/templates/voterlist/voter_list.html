@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voter List</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        img { width: 50px; height: 60px; object-fit: cover; }
+        .header { text-align: center; margin-bottom: 20px; }
+        .stats { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>STATE OF SIKKIM</h1>
+        <h2>PANCHAYAT ELECTORAL ROLL - 2025</h2>
+        <p>GP No. & Name: 11-LINGZYAK</p>
+        <p>Ward No. & Name: 2-SANGTENGI</p>
+        <p>Polling Station: RANKA SR SEC SCHOOL - NEW BUILDING</p>
+        <div class="stats">
+            Total Voters: Male {{ total_male }} Female {{ total_female }} Total {{ total_voters }}
+        </div>
+        <a href="{% url 'generate_pdf' %}">Download PDF</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Sl. No.</th>
+                <th>Name</th>
+                <th>Father/Husband</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>EPIC No.</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for voter in voters %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ voter.name }}</td>
+                <td>{{ voter.father_husband_name }}</td>
+                <td>{{ voter.get_gender_display }}</td>
+                <td>{{ voter.age }}</td>
+                <td>{{ voter.epic_no }}</td>
+                <td>
+                    {% if voter.photo %}
+                        <img src="{{ voter.photo.url }}" alt="Photo">
+                    {% else %}
+                        No Photo
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

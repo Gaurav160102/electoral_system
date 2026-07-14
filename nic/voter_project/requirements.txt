@@ -1,0 +1,25 @@
+CRYPTOGRAPHY AND NETWORK SECURITY.
+Introduction 
+Attacks
+Classical Encryption techniques 
+Ceasor Cipher.
+Vigenere cipher
+With table
+Without table 
+Playfair Cypher
+Hill Cipher
+One time Pad
+Rail Fence Technique
+Row Column Transposition 
+Double transposition 
+Modular Arithmetic 
+Modular exponentiation
+Modular properties 
+GCD euclidean algorithm 
+Extended Euler.
+DES.
+Block cipher
+Diagram.
+Euler totient function
+Fermats little theorem
+Eulers theorem
